@@ -33,8 +33,13 @@ npm install
    cp .env.local.example .env.local
    ```
 
-2. Edit `.env.local` and replace `your_gemini_api_key_here` with your actual Gemini API key:
-   ```
+2. Edit `.env.local` and add your keys:
+   ```env
+   # Supabase
+   NEXT_PUBLIC_SUPABASE_URL=your_supabase_url_here
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key_here
+
+   # Gemini API
    GEMINI_API_KEY=your_actual_api_key_here
    ```
 

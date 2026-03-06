@@ -39,3 +39,13 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# build artifacts
+build_log.txt
+*.lnk
+
+# temp/private logs
+TEMPLATE_CHANGES_SUMMARY.md
+
+# testing scripts with keys
+test_supabase.js
