@@ -342,6 +342,8 @@ export default function Home() {
   };
 
   const handleCodeUpdate = async (code: { html: string; css: string; js: string }) => {
+    // Update live preview immediately
+    setGeneratedCode(code);
     if (currentProject) {
       setProjects(prev => prev.map(p =>
         p.id === currentProject.id ? { ...p, lastGeneratedCode: code } : p
@@ -866,7 +868,7 @@ ${project.lastGeneratedCode ? 'This project contains generated HTML, CSS, and Ja
               </div>
               {(hasGeneratedCode || isLoading) && (
                 <div className={`${mobileView === 'preview' ? 'flex' : 'hidden'} md:flex flex-col w-full md:w-1/2 h-full overflow-hidden border-l ${theme === 'dark' ? 'border-gray-800' : 'border-gray-200'}`}>
-                  <PreviewPanel code={generatedCode} pages={generatedPages} isVisible={hasGeneratedCode || isLoading} isLoading={isLoading} />
+                  <PreviewPanel code={generatedCode} pages={generatedPages} isVisible={hasGeneratedCode || isLoading} isLoading={isLoading} onCodeUpdate={handleCodeUpdate} />
                 </div>
               )}
             </div>
@@ -1381,7 +1383,7 @@ ${project.lastGeneratedCode ? 'This project contains generated HTML, CSS, and Ja
                           <button
                             onClick={() => {
                               if (currentProject) {
-                                handlePublishToCommunity(currentProject);
+                                handlePublishToCommunity(currentProject, 'general', false, []);
                               } else {
                                 setActiveView('projects');
                               }
@@ -1411,7 +1413,7 @@ ${project.lastGeneratedCode ? 'This project contains generated HTML, CSS, and Ja
                             <button
                               onClick={() => {
                                 if (currentProject) {
-                                  handlePublishToCommunity(currentProject);
+                                  handlePublishToCommunity(currentProject, 'general', false, []);
                                 } else {
                                   alert('Please select a project first!');
                                 }
