@@ -177,7 +177,7 @@ export default function PreviewPanel({ code, pages, isVisible, isLoading = false
             {code.html && (
               <button
                 onClick={() => setIsGrapesOpen(true)}
-                title="Edit visually with GrapesJS"
+                title="Edit visually with Editor"
                 className={`flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-bold transition-all border ${
                   theme === 'dark'
                     ? 'bg-indigo-500/10 border-indigo-500/30 text-indigo-400 hover:bg-indigo-500/20 hover:text-indigo-300'
@@ -188,7 +188,7 @@ export default function PreviewPanel({ code, pages, isVisible, isLoading = false
                   <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
                   <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
                 </svg>
-                Edit in GrapesJS
+                Edit in Editor
               </button>
             )}
 
